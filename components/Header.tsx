@@ -5,12 +5,12 @@ const Header: React.FC = () => {
   return (
     <header className="mb-8 text-center">
       <div className="inline-flex items-center justify-center p-3 bg-emerald-600 rounded-2xl shadow-lg mb-4">
-        <i className="fa-solid fa-earth-asia text-3xl text-white"></i>
+        <i className="fa-solid fa-earth-asia text-3xl text-white animate-spin-globe"></i>
       </div>
-      <h1 className="text-3xl font-bold text-slate-800 tracking-tight">
+      <h1 className="text-3xl font-bold text-white tracking-tight">
         INZRA Bulk Map Point Generator
       </h1>
-      <p className="text-slate-500 mt-2 max-w-md mx-auto">
+      <p className="text-blue-200 mt-2 max-w-md mx-auto">
         Version 6.1 - Professional bulk coordinate generation for precise map analysis and geospatial data mapping.
       </p>
       <a 

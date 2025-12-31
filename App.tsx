@@ -1,9 +1,9 @@
 
 import React, { useState } from 'react';
+import JSZip from 'jszip';
 import Header from './components/Header';
 import { RadiusUnit, GeometryType, GeneratorParams } from './types';
 import { generateKmlCircle } from './services/geoService';
-import JSZip from 'https://esm.sh/jszip@3.10.1';
 
 interface ResultRow {
   name: string;
@@ -180,14 +180,14 @@ const App: React.FC = () => {
   };
 
   return (
-    <main className="max-w-7xl mx-auto px-4 py-12">
+    <main className="min-h-screen bg-cover flex flex-col">
       <Header />
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      <div className="flex-1 grid grid-cols-1 lg:grid-cols-12 gap-6 px-4 lg:px-8 py-6 max-w-7xl mx-auto w-full">
         {/* Input Sidebar */}
-        <div className="lg:col-span-4 space-y-6">
-          <div className="bg-white p-6 rounded-2xl shadow-xl border border-emerald-100">
-            <h2 className="text-lg font-semibold text-slate-800 mb-6 flex items-center justify-between border-b pb-3 border-slate-50">
+        <div className="lg:col-span-4 space-y-4">
+          <div className="bg-blue-900/30 backdrop-blur-md p-5 rounded-xl shadow-xl border border-blue-700/50">
+            <h2 className="text-base font-semibold text-white mb-4 flex items-center justify-between border-b pb-2 border-blue-700/50">
               <span className="flex items-center gap-2">
                 <i className="fa-solid fa-location-dot text-emerald-600"></i>
                 Location Specs
@@ -199,9 +199,9 @@ const App: React.FC = () => {
               )}
             </h2>
 
-            <div className="space-y-5">
+            <div className="space-y-3">
               <div className="relative group">
-                <label className="block text-xs font-bold text-slate-500 uppercase mb-2">1. Geographic Center</label>
+                <label className="block text-xs font-bold text-blue-200 uppercase mb-1.5">1. Geographic Center - Coordinates or Map URL</label>
                 <div className="relative">
                   <input
                     type="text"
@@ -209,68 +209,68 @@ const App: React.FC = () => {
                     value={params.center}
                     onChange={handleInputChange}
                     placeholder="Latitude, Longitude or Google Maps URL"
-                    className="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-emerald-500 outline-none transition-all text-sm font-mono placeholder:font-sans"
+                    className="w-full pl-10 pr-4 py-2.5 bg-blue-800 border border-blue-600 rounded-xl focus:ring-2 focus:ring-emerald-500 outline-none transition-all text-sm font-mono placeholder:font-sans text-white placeholder:text-blue-400"
                   />
-                  <i className="fa-solid fa-map-pin absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-emerald-500 transition-colors"></i>
+                  <i className="fa-solid fa-map-pin absolute left-4 top-1/2 -translate-y-1/2 text-blue-300 group-focus-within:text-emerald-500 transition-colors"></i>
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-xs font-bold text-slate-500 uppercase mb-2">Max Radius</label>
+                  <label className="block text-xs font-bold text-blue-200 uppercase mb-1.5">Max Radius</label>
                   <input
                     type="number"
                     name="radius"
                     value={params.radius}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-emerald-500 outline-none transition-all text-sm font-bold"
+                    className="w-full px-4 py-2.5 bg-blue-800 border border-blue-600 rounded-xl focus:ring-2 focus:ring-emerald-500 outline-none transition-all text-sm font-bold text-white"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-bold text-slate-500 uppercase mb-2">Unit</label>
+                  <label className="block text-xs font-bold text-blue-200 uppercase mb-1.5">Unit</label>
                   <select
                     name="unit"
                     value={params.unit}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-emerald-500 outline-none transition-all text-sm"
+                    className="w-full px-4 py-2.5 bg-blue-800 border border-blue-600 rounded-xl focus:ring-2 focus:ring-emerald-500 outline-none transition-all text-sm text-white"
                   >
                     {Object.values(RadiusUnit).map(u => <option key={u} value={u}>{u}</option>)}
                   </select>
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-slate-100">
-                <label className="block text-xs font-bold text-slate-500 uppercase mb-2 flex items-center justify-between">
+              <div className="pt-3 border-t border-blue-700/50">
+                <label className="block text-xs font-bold text-blue-200 uppercase mb-1.5 flex items-center justify-between">
                   <span>2. Keywords (Names)</span>
-                  <i className="fa-solid fa-font text-slate-300"></i>
+                  <i className="fa-solid fa-font text-blue-300"></i>
                 </label>
                 <textarea
                   name="names"
                   value={metadata.names}
                   onChange={handleMetadataChange}
                   placeholder="Paste list of names (one per line)..."
-                  className="w-full h-24 px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-emerald-500 outline-none transition-all text-sm resize-none scrollbar-thin"
+                  className="w-full h-20 px-3 py-2 bg-blue-800 border border-blue-600 rounded-lg focus:ring-2 focus:ring-emerald-500 outline-none transition-all text-xs resize-none scrollbar-thin text-white placeholder:text-blue-400"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-slate-500 uppercase mb-2 flex items-center justify-between">
+                <label className="block text-xs font-bold text-blue-200 uppercase mb-1.5 flex items-center justify-between">
                   <span>3. URLs (Descriptions)</span>
-                  <i className="fa-solid fa-link text-slate-300"></i>
+                  <i className="fa-solid fa-link text-blue-300"></i>
                 </label>
                 <textarea
                   name="urls"
                   value={metadata.urls}
                   onChange={handleMetadataChange}
                   placeholder="Paste list of URLs (one per line)..."
-                  className="w-full h-24 px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-emerald-500 outline-none transition-all text-sm resize-none scrollbar-thin"
+                  className="w-full h-20 px-3 py-2 bg-blue-800 border border-blue-600 rounded-lg focus:ring-2 focus:ring-emerald-500 outline-none transition-all text-xs resize-none scrollbar-thin text-white placeholder:text-blue-400"
                 />
               </div>
 
-              <div className="grid grid-cols-1 gap-3 pt-2">
+              <div className="grid grid-cols-1 gap-2 pt-2">
                 <button
                   onClick={handleGeneratePreview}
-                  className="w-full py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white font-black rounded-2xl shadow-lg shadow-emerald-100 transition-all active:scale-[0.98] flex items-center justify-center gap-3 uppercase tracking-widest text-xs"
+                  className="w-full py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-lg shadow-lg shadow-emerald-100 transition-all active:scale-[0.98] flex items-center justify-center gap-2 uppercase tracking-widest text-xs"
                 >
                   <i className="fa-solid fa-eye"></i>
                   Preview Dataset
@@ -279,7 +279,7 @@ const App: React.FC = () => {
                 <button
                   onClick={handleBulkDownload}
                   disabled={isZipping || params.radius < 1}
-                  className={`w-full py-3.5 bg-slate-800 hover:bg-slate-900 text-white font-black rounded-2xl shadow-xl transition-all active:scale-[0.98] flex items-center justify-center gap-3 uppercase tracking-widest text-xs ${isZipping ? 'opacity-70 cursor-wait' : 'cursor-pointer'}`}
+                  className={`w-full py-2.5 bg-slate-700 hover:bg-slate-800 text-white font-bold rounded-lg shadow-lg transition-all active:scale-[0.98] flex items-center justify-center gap-2 uppercase tracking-widest text-xs ${isZipping ? 'opacity-70 cursor-wait' : 'cursor-pointer'}`}
                 >
                   {isZipping ? (
                     <>
@@ -295,35 +295,50 @@ const App: React.FC = () => {
                 </button>
               </div>
             </div>
+
+            {/* Helpful Instructions Note */}
+            <div className="mt-4 p-3 bg-blue-900/40 backdrop-blur-md border border-blue-700/50 rounded-lg">
+              <div className="flex items-start gap-3">
+                <i className="fa-solid fa-lightbulb text-amber-400 mt-1 flex-shrink-0"></i>
+                <div className="text-xs">
+                  <p className="text-blue-100 font-semibold mb-1.5">How to use your coordinates:</p>
+                  <ol className="text-blue-200 text-xs space-y-1 ml-4 list-decimal">
+                    <li>Download the CSV file using the buttons above</li>
+                    <li>Go to <a href="https://www.google.com/maps/d/" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:text-emerald-300 underline font-semibold">Google My Maps</a></li>
+                    <li>Create a new map and import your CSV data</li>
+                  </ol>
+                </div>
+              </div>
+            </div>
           </div>
 
           {error && (
-            <div className="bg-rose-50 border-l-4 border-rose-500 p-4 rounded-xl flex items-start gap-3 animate-in fade-in slide-in-from-left-4 duration-300">
-              <i className="fa-solid fa-circle-exclamation text-rose-500 mt-1"></i>
-              <p className="text-sm text-rose-700 font-semibold leading-relaxed">{error}</p>
+            <div className="bg-rose-900/30 backdrop-blur-md border-l-4 border-rose-500 p-4 rounded-xl flex items-start gap-3 animate-in fade-in slide-in-from-left-4 duration-300">
+              <i className="fa-solid fa-circle-exclamation text-rose-400 mt-1"></i>
+              <p className="text-sm text-rose-200 font-semibold leading-relaxed">{error}</p>
             </div>
           )}
         </div>
 
         {/* Results Panel */}
-        <div className="lg:col-span-8">
-          <div className={`bg-white rounded-3xl shadow-2xl border border-emerald-100 flex flex-col transition-all duration-300 overflow-hidden ${isScrollEnabled ? 'h-[750px]' : 'h-auto'}`}>
+        <div className="lg:col-span-8 flex flex-col">
+          <div className={`bg-blue-900/30 backdrop-blur-md rounded-xl shadow-2xl border border-blue-700/50 flex flex-col transition-all duration-300 overflow-hidden ${isScrollEnabled ? 'h-[600px]' : 'h-auto'} min-h-0`}>
             {/* Action Bar */}
-            <div className="p-6 bg-white border-b border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="p-4 bg-blue-900/20 backdrop-blur-sm border-b border-blue-700/50 flex flex-col sm:flex-row items-center justify-between gap-3">
               <div className="flex flex-col">
-                <h2 className="text-xl font-extrabold text-slate-800 flex items-center gap-3">
+                <h2 className="text-base font-bold text-white flex items-center gap-2">
                   <i className="fa-solid fa-list-ol text-emerald-600"></i>
                   Coordinate Dataset
                 </h2>
-                <div className="flex items-center gap-4 mt-1">
+                <div className="flex items-center gap-3 mt-1">
                   {resultRows.length > 0 && (
-                    <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                    <span className="text-[10px] text-blue-300 font-bold uppercase tracking-wider">
                       Radius: {params.radius} {params.unit}
                     </span>
                   )}
                   <button 
                     onClick={() => setIsScrollEnabled(!isScrollEnabled)}
-                    className="flex items-center gap-1.5 text-[10px] font-black uppercase tracking-widest text-emerald-600 hover:text-emerald-700 transition-colors"
+                    className="flex items-center gap-1.5 text-[10px] font-black uppercase tracking-widest text-emerald-400 hover:text-emerald-300 transition-colors"
                   >
                     <i className={`fa-solid ${isScrollEnabled ? 'fa-toggle-on' : 'fa-toggle-off'} text-sm`}></i>
                     Scroll Preview: {isScrollEnabled ? 'ON' : 'OFF'}
@@ -356,30 +371,30 @@ const App: React.FC = () => {
             </div>
 
             {/* Table Area with Custom Scroll Options */}
-            <div className={`flex-grow relative ${isScrollEnabled ? 'overflow-auto scrollbar-thin scrollbar-thumb-emerald-100 scrollbar-track-transparent' : 'overflow-visible'}`}>
+            <div className={`flex-grow relative ${isScrollEnabled ? 'overflow-auto scrollbar-thin scrollbar-thumb-emerald-600 scrollbar-track-blue-800' : 'overflow-visible'}`}>
               {resultRows.length > 0 ? (
                 <table className="w-full text-left border-collapse min-w-[800px]">
-                  <thead className={`bg-slate-50/95 backdrop-blur z-10 border-b border-slate-100 ${isScrollEnabled ? 'sticky top-0' : ''}`}>
+                  <thead className={`bg-blue-800 backdrop-blur z-10 border-b border-blue-700 ${isScrollEnabled ? 'sticky top-0' : ''}`}>
                     <tr>
-                      <th className="px-6 py-4 text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] w-[20%]">Keyword</th>
-                      <th className="px-6 py-4 text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] w-[40%]">URL Description</th>
-                      <th className="px-6 py-4 text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] w-[20%]">Longitude</th>
-                      <th className="px-6 py-4 text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] w-[20%]">Latitude</th>
+                      <th className="px-6 py-4 text-[10px] font-black text-blue-200 uppercase tracking-[0.2em] w-[20%]">Keyword</th>
+                      <th className="px-6 py-4 text-[10px] font-black text-blue-200 uppercase tracking-[0.2em] w-[40%]">URL Description</th>
+                      <th className="px-6 py-4 text-[10px] font-black text-blue-200 uppercase tracking-[0.2em] w-[20%]">Longitude</th>
+                      <th className="px-6 py-4 text-[10px] font-black text-blue-200 uppercase tracking-[0.2em] w-[20%]">Latitude</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-slate-50">
+                  <tbody className="divide-y divide-blue-800">
                     {resultRows.map((row, idx) => (
-                      <tr key={idx} className="hover:bg-emerald-50/40 transition-colors group">
-                        <td className="px-6 py-3.5 text-sm font-bold text-slate-700">
-                          {row.name || <span className="text-slate-200 italic font-normal">N/A</span>}
+                      <tr key={idx} className="hover:bg-blue-800/50 transition-colors group">
+                        <td className="px-6 py-3.5 text-sm font-bold text-white">
+                          {row.name || <span className="text-blue-400 italic font-normal">N/A</span>}
                         </td>
-                        <td className="px-6 py-3.5 text-[11px] text-slate-400 font-mono truncate max-w-xs group-hover:text-emerald-800">
-                          {row.description || <span className="text-slate-200 italic font-normal">N/A</span>}
+                        <td className="px-6 py-3.5 text-[11px] text-blue-300 font-mono truncate max-w-xs group-hover:text-emerald-300">
+                          {row.description || <span className="text-blue-400 italic font-normal">N/A</span>}
                         </td>
-                        <td className="px-6 py-3.5 text-xs font-mono text-emerald-700 font-bold bg-emerald-50/10 group-hover:bg-emerald-50/30">
+                        <td className="px-6 py-3.5 text-xs font-mono text-emerald-400 font-bold bg-emerald-500/10 group-hover:bg-emerald-500/20">
                           {row.lng.toFixed(8)}
                         </td>
-                        <td className="px-6 py-3.5 text-xs font-mono text-emerald-700 font-bold bg-emerald-50/10 group-hover:bg-emerald-50/30">
+                        <td className="px-6 py-3.5 text-xs font-mono text-emerald-400 font-bold bg-emerald-500/10 group-hover:bg-emerald-500/20">
                           {row.lat.toFixed(8)}
                         </td>
                       </tr>
@@ -389,7 +404,7 @@ const App: React.FC = () => {
               ) : (
                 <div className="absolute inset-0 flex items-center justify-center flex-col gap-8 p-12 text-center">
                   <div className="relative">
-                    <div className="w-32 h-32 bg-slate-50 rounded-full flex items-center justify-center text-slate-100 text-6xl shadow-inner relative z-0">
+                    <div className="w-32 h-32 bg-blue-800 rounded-full flex items-center justify-center text-blue-700 text-6xl shadow-inner relative z-0">
                       <i className="fa-solid fa-map-location-dot"></i>
                     </div>
                     <div className="absolute -bottom-2 -right-2 w-12 h-12 bg-emerald-500 rounded-2xl flex items-center justify-center text-white text-xl shadow-lg animate-bounce">
@@ -397,8 +412,8 @@ const App: React.FC = () => {
                     </div>
                   </div>
                   <div className="max-w-md">
-                    <h3 className="text-slate-400 font-black mb-3 uppercase tracking-widest text-sm">Preview Dashboard</h3>
-                    <p className="text-slate-300 text-sm italic leading-relaxed">
+                    <h3 className="text-blue-300 font-black mb-3 uppercase tracking-widest text-sm">Preview Dashboard</h3>
+                    <p className="text-blue-300 text-sm italic leading-relaxed">
                       Coordinates will appear here in a structured table. You can toggle "Scroll Preview" to keep the dashboard compact or expand it to see all entries.
                     </p>
                   </div>
@@ -408,7 +423,7 @@ const App: React.FC = () => {
 
             {/* Footer Stats */}
             {resultRows.length > 0 && (
-              <div className="px-6 py-4 bg-slate-50 border-t border-slate-100 flex items-center justify-between text-[9px] font-black uppercase tracking-widest text-slate-400">
+              <div className="px-4 py-3 bg-blue-900/30 backdrop-blur-sm border-t border-blue-700/50 flex items-center justify-between text-[8px] font-bold uppercase tracking-wider text-blue-200">
                 <div className="flex items-center gap-6">
                   <span className="flex items-center gap-1.5">
                     <i className="fa-solid fa-circle-nodes text-emerald-400"></i>
@@ -429,10 +444,10 @@ const App: React.FC = () => {
         </div>
       </div>
 
-      <footer className="mt-16 text-center">
-        <div className="h-px bg-slate-200 w-32 mx-auto mb-6"></div>
-        <p className="text-slate-400 text-[10px] font-black uppercase tracking-[0.4em]">
-          INZRA bulk map point generator version 6.1 • <a href="https://www.inzra.com" target="_blank" className="hover:text-emerald-500 transition-colors">www.inzra.com</a>
+      <footer className="mt-8 pb-6 text-center">
+        <div className="h-px bg-blue-700 w-32 mx-auto mb-4"></div>
+        <p className="text-blue-300 text-[10px] font-black uppercase tracking-[0.4em]">
+          INZRA bulk map point generator version 6.1 • <a href="https://www.inzra.com" target="_blank" className="hover:text-emerald-400 transition-colors">www.inzra.com</a>
         </p>
       </footer>
     </main>
