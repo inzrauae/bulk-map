@@ -449,6 +449,9 @@ const App: React.FC = () => {
         <p className="text-blue-300 text-[10px] font-black uppercase tracking-[0.4em]">
           INZRA bulk map point generator version 6.1 • <a href="https://www.inzra.com" target="_blank" className="hover:text-emerald-400 transition-colors">www.inzra.com</a>
         </p>
+        <p className="text-blue-300 text-[10px] font-black uppercase tracking-[0.4em] mt-2">
+          Powered by <a href="https://seoservice.lk" target="_blank" rel="noopener" className="hover:text-emerald-400 transition-colors">SEO Service LK</a> • <a href="https://seoservice.lk" target="_blank" rel="noopener" className="hover:text-emerald-400 transition-colors">seoservice.lk</a>
+        </p>
       </footer>
     </main>
   );

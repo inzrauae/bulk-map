@@ -1,20 +1,43 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# INZRA Bulk Map Point Generator
 
-# Run and deploy your AI Studio app
+Version 6.1 — a professional geospatial tool that generates structured circular coordinate datasets around a center point, for map point analysis and bulk mapping (e.g. Google My Maps).
 
-This contains everything you need to run your app locally.
+By [INZRA](https://www.inzra.com) · SEO by [SEO Service LK](https://seoservice.lk)
 
-View your app in AI Studio: https://ai.studio/apps/drive/1urA4K8FjCejl-TICunO5rTRSTaL-BvWX
+## Features
 
-## Run Locally
+- Enter a center as `latitude, longitude` or paste a Google Maps URL
+- Set a radius in kilometers, meters or miles
+- Paste lists of point names and URLs
+- Preview the generated dataset before exporting
+- Bulk ZIP export (1 to 10 datasets)
+- One-click link to Google My Maps for import
 
-**Prerequisites:**  Node.js
+## Tech stack
 
+React 19, TypeScript, Vite, Tailwind CSS, JSZip
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## Run locally
+
+**Prerequisites:** Node.js
+
+```bash
+npm install
+npm run dev
+```
+
+The app runs at http://localhost:3000.
+
+If you use Gemini-powered features, set `GEMINI_API_KEY` in `.env.local`.
+
+## Build
+
+```bash
+npm run build
+npm run preview
+```
+
+## Links
+
+- INZRA: https://www.inzra.com
+- SEO Service LK: https://seoservice.lk

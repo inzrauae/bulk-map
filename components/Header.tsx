@@ -21,6 +21,15 @@ const Header: React.FC = () => {
       >
         www.inzra.com
       </a>
+      <span className="text-blue-300 text-sm mx-2">•</span>
+      <a
+        href="https://seoservice.lk"
+        target="_blank"
+        rel="noopener"
+        className="text-emerald-600 text-sm font-bold mt-2 hover:underline inline-block"
+      >
+        seoservice.lk
+      </a>
     </header>
   );
 };
