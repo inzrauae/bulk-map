@@ -4,7 +4,7 @@
 
 Version 6.1 — a professional geospatial tool that generates structured circular coordinate datasets around a center point, for map point analysis and bulk mapping (e.g. Google My Maps).
 
-By [INZRA](https://www.inzra.com) · SEO by [SEO Service LK](https://seoservice.lk)
+By [INZRA](https://www.inzra.com) · SEO by [SEO Service Sri lanka](https://seoservice.lk)
 
 ## Features
 
