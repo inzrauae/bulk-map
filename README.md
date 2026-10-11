@@ -1,6 +1,6 @@
-# INZRA Bulk Map Point Generator – Free Google My Maps Coordinate Generator
+# INZRA Bulk Map Point Generator - Free Google My Maps Coordinate Generator
 
-**[Live demo](https://inzrauae.github.io/bulk-map/)** · [INZRA](https://www.inzra.com) · [SEO Service LK](https://seoservice.lk)
+**[Live demo](https://inzrauae.github.io/bulk-map/)** | [INZRA](https://www.inzra.com) | [SEO Service LK](https://seoservice.lk)
 
 Version 6.1 â€” a professional geospatial tool that generates structured circular coordinate datasets around a center point, for map point analysis and bulk mapping (e.g. Google My Maps).
 
