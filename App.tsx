@@ -445,11 +445,11 @@ const App: React.FC = () => {
       </div>
 
       <section className="max-w-3xl mx-auto mt-10 px-4 text-blue-100 text-sm leading-relaxed">
-        <h2 className="text-lg font-bold text-white mb-2">Free Bulk Map Point Generator for Google My Maps</h2>
+        <h2 className="text-lg font-bold text-white mb-2">Free Map Stacking Tool and Bulk Map Point Generator for Google My Maps</h2>
         <p className="mb-4">
           Generate circular coordinate datasets around any latitude and longitude or Google Maps URL. Set a radius in kilometers, meters or miles,
-          add names and URLs, preview the points, then export a ZIP ready to import into Google My Maps. Useful for local SEO geo-grids,
-          service-area mapping and geospatial analysis.
+          add names and URLs, preview the points, then export a ZIP ready to import into Google My Maps. Useful for Google map stacking, bulk map point link building,
+          local SEO geo-grids, service-area mapping and geospatial analysis.
         </p>
         <h3 className="text-base font-bold text-white mb-2">How it works</h3>
         <ol className="list-decimal list-inside mb-4 space-y-1">
@@ -460,6 +460,8 @@ const App: React.FC = () => {
           <li>Import the files into Google My Maps.</li>
         </ol>
         <h3 className="text-base font-bold text-white mb-2">FAQ</h3>
+        <p className="mb-2"><strong>What is map stacking?</strong> Map stacking (also called a map stack, stack maps or Google map stacking) is a local SEO technique that builds many map points and embedded maps around a business location and links them together to strengthen local relevance.</p>
+        <p className="mb-2"><strong>What is bulk map point link building?</strong> It is generating many map points, each with a name and URL, and publishing them in Google My Maps so they link back to your pages.</p>
         <p className="mb-2"><strong>Is it free?</strong> Yes, it runs in your browser at no cost.</p>
         <p className="mb-2"><strong>Who makes it?</strong> Built by <a href="https://www.inzra.com" target="_blank" rel="noopener" className="underline hover:text-emerald-400">INZRA</a> and promoted by <a href="https://seoservice.lk" target="_blank" rel="noopener" className="underline hover:text-emerald-400">SEO Service LK</a>. Source code on <a href="https://github.com/inzrauae/bulk-map" target="_blank" rel="noopener" className="underline hover:text-emerald-400">GitHub</a>.</p>
       </section>

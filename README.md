@@ -1,4 +1,4 @@
-# INZRA Bulk Map Point Generator - Free Google My Maps Coordinate Generator
+# INZRA Bulk Map Point Generator - Map Stacking Tool for Google My Maps
 
 **[Live demo](https://inzrauae.github.io/bulk-map/)** | [INZRA](https://www.inzra.com) | [SEO Service LK](https://seoservice.lk)
 
@@ -45,6 +45,9 @@ npm run preview
 - SEO Service LK: https://seoservice.lk
 
 ## Use cases
+
+- Google map stacking, map stack and stack maps workflows
+- Bulk map point link building
 
 - Local SEO geo-grid and service-area point generation
 - Bulk map points for Google My Maps import
