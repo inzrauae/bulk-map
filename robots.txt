@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://inzrauae.github.io/bulk-map/sitemap.xml
