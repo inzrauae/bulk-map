@@ -463,7 +463,7 @@ const App: React.FC = () => {
         <p className="mb-2"><strong>What is map stacking?</strong> Map stacking (also called a map stack, stack maps or Google map stacking) is a local SEO technique that builds many map points and embedded maps around a business location and links them together to strengthen local relevance.</p>
         <p className="mb-2"><strong>What is bulk map point link building?</strong> It is generating many map points, each with a name and URL, and publishing them in Google My Maps so they link back to your pages.</p>
         <p className="mb-2"><strong>Is it free?</strong> Yes, it runs in your browser at no cost.</p>
-        <p className="mb-2"><strong>Who makes it?</strong> Built by <a href="https://www.inzra.com" target="_blank" rel="noopener" className="underline hover:text-emerald-400">INZRA</a> and promoted by <a href="https://seoservice.lk" target="_blank" rel="noopener" className="underline hover:text-emerald-400">SEO Service LK</a>. Source code on <a href="https://github.com/inzrauae/bulk-map" target="_blank" rel="noopener" className="underline hover:text-emerald-400">GitHub</a>.</p>
+        <p className="mb-2"><strong>Who makes it?</strong> Developed by <a href="https://seoservice.lk" target="_blank" rel="noopener" className="underline hover:text-emerald-400">SEO Service Sri Lanka</a> for <a href="https://www.inzra.com" target="_blank" rel="noopener" className="underline hover:text-emerald-400">INZRA</a>. Source code on <a href="https://github.com/inzrauae/bulk-map" target="_blank" rel="noopener" className="underline hover:text-emerald-400">GitHub</a>.</p>
       </section>
 
       <footer className="mt-8 pb-6 text-center">
@@ -472,7 +472,7 @@ const App: React.FC = () => {
           INZRA bulk map point generator version 6.1 • <a href="https://www.inzra.com" target="_blank" className="hover:text-emerald-400 transition-colors">www.inzra.com</a>
         </p>
         <p className="text-blue-300 text-[10px] font-black uppercase tracking-[0.4em] mt-2">
-          Powered by <a href="https://seoservice.lk" target="_blank" rel="noopener" className="hover:text-emerald-400 transition-colors">SEO Service LK</a> • <a href="https://seoservice.lk" target="_blank" rel="noopener" className="hover:text-emerald-400 transition-colors">seoservice.lk</a>
+          Developed by <a href="https://seoservice.lk" target="_blank" rel="noopener" className="hover:text-emerald-400 transition-colors">SEO Service Sri Lanka</a>
         </p>
       </footer>
     </main>

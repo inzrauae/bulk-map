@@ -28,7 +28,7 @@ const Header: React.FC = () => {
         rel="noopener"
         className="text-emerald-600 text-sm font-bold mt-2 hover:underline inline-block"
       >
-        seoservice.lk
+        SEO Service Sri Lanka
       </a>
     </header>
   );

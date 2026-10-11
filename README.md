@@ -1,10 +1,10 @@
 # INZRA Bulk Map Point Generator - Map Stacking Tool for Google My Maps
 
-**[Live demo](https://inzrauae.github.io/bulk-map/)** | [INZRA](https://www.inzra.com) | [SEO Service LK](https://seoservice.lk)
+**[Live demo](https://inzrauae.github.io/bulk-map/)** | [INZRA](https://www.inzra.com) | [SEO Service Sri Lanka](https://seoservice.lk)
 
 Version 6.1 — a professional geospatial tool that generates structured circular coordinate datasets around a center point, for map point analysis and bulk mapping (e.g. Google My Maps).
 
-By [INZRA](https://www.inzra.com) · SEO by [SEO Service Sri lanka](https://seoservice.lk)
+By [INZRA](https://www.inzra.com) · Developed by [SEO Service Sri Lanka](https://seoservice.lk)
 
 ## Features
 
@@ -42,7 +42,7 @@ npm run preview
 ## Links
 
 - INZRA: https://www.inzra.com
-- SEO Service LK: https://seoservice.lk
+- SEO Service Sri Lanka: https://seoservice.lk
 
 ## Use cases
 
@@ -55,4 +55,4 @@ npm run preview
 
 ## About
 
-Built by [INZRA](https://www.inzra.com). Search optimization and promotion by [SEO Service LK](https://seoservice.lk), an SEO service in Sri Lanka.
+Developed by [SEO Service Sri Lanka](https://seoservice.lk), an SEO service company in Sri Lanka, for [INZRA](https://www.inzra.com).
